@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estúdio 2 Marketing · Agência de Marketing Digital</title>
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xrq2bhbtsh");
+</script>
+<!-- End Microsoft Clarity -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #FAFAFA;
+  --cream2: #F3F2F0;
+  --orange: #FF6600;
+  --orange-dark: #D65500;
+  --orange-soft: rgba(255,102,0,0.12);
+  --ink: #0F1629;
+  --muted: #6B7280;
+  --card: #FFFFFF;
+  --border: rgba(15,22,41,0.10);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: linear-gradient(180deg, var(--cream) 0%, var(--cream2) 100%);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 1rem 3rem;
+}
+
+.phone {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ─── PROFILE ─── */
+.avatar-wrap {
+  width: 104px;
+  height: 104px;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 2px solid var(--orange);
+  margin-bottom: 1.1rem;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 24px rgba(255,102,0,0.18);
+  opacity: 0;
+  animation: fadeUp .6s ease forwards .1s;
+}
+.avatar-wrap img { width: 72%; height: 72%; object-fit: contain; }
+
+.name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: .15rem;
+  opacity: 0;
+  animation: fadeUp .6s ease forwards .2s;
+}
+.name span { color: var(--orange); }
+
+.role {
+  font-size: .72rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: .6rem;
+  opacity: 0;
+  animation: fadeUp .6s ease forwards .28s;
+}
+
+.bio {
+  font-size: .85rem;
+  color: var(--ink);
+  text-align: center;
+  line-height: 1.55;
+  max-width: 320px;
+  margin-bottom: .35rem;
+  opacity: 0;
+  animation: fadeUp .6s ease forwards .34s;
+}
+
+.location {
+  font-size: .68rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.8rem;
+  opacity: 0;
+  animation: fadeUp .6s ease forwards .4s;
+}
+
+/* ─── LINK BUTTONS ─── */
+.links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+}
+
+.link-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  width: 100%;
+  padding: .95rem 1.2rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 2px 12px rgba(15,22,41,0.05);
+  transition: background .25s ease, border-color .25s ease, transform .15s ease, box-shadow .25s ease;
+  opacity: 0;
+  animation: fadeUp .6s ease forwards;
+}
+
+.link-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+}
+
+.section-label {
+  width: 100%;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--orange-dark);
+  margin: .3rem 0 -.1rem .2rem;
+  opacity: 0;
+  animation: fadeUp .6s ease forwards;
+}
+
+.link-btn:hover {
+  background: #FFF9F5;
+  border-color: var(--orange);
+  box-shadow: 0 6px 18px rgba(255,102,0,0.14);
+  transform: translateY(-1px);
+}
+.link-btn:active { transform: translateY(0); }
+
+.link-thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--orange-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.link-thumb svg { width: 22px; height: 22px; stroke: var(--orange-dark); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.link-thumb svg.filled { fill: var(--orange-dark); stroke: none; }
+
+.link-text { flex: 1; min-width: 0; }
+.link-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: .95rem;
+  color: var(--ink);
+  font-weight: 600;
+  letter-spacing: .01em;
+}
+.link-sub {
+  font-size: .7rem;
+  color: var(--muted);
+  margin-top: .1rem;
+}
+
+.link-arrow {
+  font-size: .8rem;
+  color: var(--orange-dark);
+  flex-shrink: 0;
+}
+
+/* Promo highlight (WhatsApp) */
+.link-btn.promo {
+  border-color: var(--orange);
+  background: linear-gradient(135deg, var(--ink), #1B2440);
+}
+.link-btn.promo:hover { background: linear-gradient(135deg, #182036, #232d52); }
+.link-btn.promo .link-title { color: #fff; font-weight: 700; }
+.link-btn.promo .link-sub { color: rgba(255,255,255,0.65); }
+.link-btn.promo .link-arrow { color: var(--orange); }
+.link-btn.promo .link-thumb { background: var(--orange); }
+.link-btn.promo .link-thumb svg { stroke: #fff; }
+.link-btn.promo .link-thumb svg.filled { fill: #fff; }
+
+/* Fixed WhatsApp CTA (bottom) */
+.whats-cta {
+  margin-top: 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  padding: .8rem 1.6rem;
+  background: var(--orange);
+  color: #fff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: .82rem;
+  text-decoration: none;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px -8px rgba(255,102,0,0.55);
+  transition: transform .15s ease, box-shadow .25s ease;
+  opacity: 0;
+  animation: fadeUp .6s ease forwards .95s;
+}
+.whats-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 28px -6px rgba(255,102,0,0.6); }
+.whats-cta svg { width: 18px; height: 18px; }
+
+/* Footer */
+.footer-note {
+  margin-top: 1.4rem;
+  font-size: .65rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0;
+  animation: fadeUp .6s ease forwards 1.02s;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── CATEGORY MODAL (list of services) ─── */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15,22,41,0.6);
+  backdrop-filter: blur(2px);
+  z-index: 1000;
+  align-items: flex-end;
+  justify-content: center;
+}
+.modal.active { display: flex; }
+
+.modal-sheet {
+  width: 100%;
+  max-width: 460px;
+  max-height: 86vh;
+  background: var(--cream);
+  border-radius: 22px 22px 0 0;
+  padding: 1.4rem 1.2rem 1.6rem;
+  overflow-y: auto;
+  box-shadow: 0 -10px 40px rgba(0,0,0,0.25);
+  animation: slideUp .35s ease;
+}
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.1rem;
+}
+.modal-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.25rem;
+  color: var(--ink);
+  font-weight: 700;
+}
+.modal-close {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 1.4rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: .3rem;
+}
+.modal-close:hover { color: var(--ink); }
+
+.service-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+  margin-bottom: .7rem;
+}
+.service-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: .3rem;
+}
+.service-desc {
+  font-size: .78rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: .8rem;
+}
+.service-btn {
+  display: inline-block;
+  padding: .55rem 1.1rem;
+  border: 1px solid var(--orange);
+  color: var(--orange-dark);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all .25s ease;
+}
+.service-btn:hover { background: var(--orange); color: #fff; }
+
+@media (max-width: 420px) {
+  .modal-sheet { max-height: 82vh; }
+}
+</style>
+</head>
+<body>
+
+<div class="phone">
+
+  <div class="avatar-wrap"><img src="logo.png" alt="Estúdio 2 Marketing"></div>
+  <h1 class="name">Estúdio <span>2</span> Marketing</h1>
+  <p class="role">Agência de Marketing Digital</p>
+  <p class="bio">Gestão de redes, conteúdo, tráfego pago e sites com acompanhamento real — pra vender de verdade, não só aparecer.</p>
+  <p class="location">📍 São Mateus & Guriri, ES</p>
+
+  <div class="links">
+
+    <a class="link-btn promo" style="animation-delay:.45s" href="https://wa.me/5527997143078?text=%5BBio%5D%20Ol%C3%A1%2C%20vim%20pelo%20Instagram%20e%20quero%20saber%20mais%20sobre%20os%20servi%C3%A7os%20do%20Est%C3%BAdio%202%20Marketing." target="_blank" rel="noopener">
+      <div class="link-thumb">
+        <svg viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>
+      </div>
+      <div class="link-text">
+        <div class="link-title">Fale com a gente</div>
+        <div class="link-sub">Direto no WhatsApp</div>
+      </div>
+      <span class="link-arrow">→</span>
+    </a>
+
+    <div class="section-label" style="animation-delay:.5s">Serviços</div>
+    <div class="link-group">
+
+      <div class="link-btn" style="animation-delay:.54s" onclick="openCategory('redes')">
+        <div class="link-thumb">
+          <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"></line><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"></line></svg>
+        </div>
+        <div class="link-text">
+          <div class="link-title">Redes Sociais &amp; Conteúdo</div>
+          <div class="link-sub">Gestão de redes e produção de reels</div>
+        </div>
+        <span class="link-arrow">→</span>
+      </div>
+
+      <div class="link-btn" style="animation-delay:.58s" onclick="openCategory('comercial')">
+        <div class="link-thumb">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+        </div>
+        <div class="link-text">
+          <div class="link-title">Tráfego Pago &amp; Comercial</div>
+          <div class="link-sub">Meta Ads e acompanhamento de vendas</div>
+        </div>
+        <span class="link-arrow">→</span>
+      </div>
+
+      <div class="link-btn" style="animation-delay:.62s" onclick="openCategory('organico')">
+        <div class="link-thumb">
+          <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+        </div>
+        <div class="link-text">
+          <div class="link-title">Tráfego Orgânico</div>
+          <div class="link-sub">Google Meu Negócio, site, blog e mais</div>
+        </div>
+        <span class="link-arrow">→</span>
+      </div>
+
+    </div>
+
+    <div class="section-label" style="animation-delay:.68s">Nossos canais</div>
+    <div class="link-group">
+
+      <a class="link-btn" style="animation-delay:.72s" href="https://estudio2marketing.com.br" target="_blank" rel="noopener">
+        <div class="link-thumb">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+        </div>
+        <div class="link-text">
+          <div class="link-title">Site</div>
+          <div class="link-sub">estudio2marketing.com.br</div>
+        </div>
+        <span class="link-arrow">→</span>
+      </a>
+
+      <a class="link-btn" style="animation-delay:.76s" href="https://www.linkedin.com/company/est%C3%BAdio-2-marketing/" target="_blank" rel="noopener">
+        <div class="link-thumb">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        </div>
+        <div class="link-text">
+          <div class="link-title">LinkedIn</div>
+          <div class="link-sub">Estúdio 2 Marketing</div>
+        </div>
+        <span class="link-arrow">→</span>
+      </a>
+
+      <a class="link-btn" style="animation-delay:.8s" href="https://share.google/HRd9Pv60h9KdPBiad" target="_blank" rel="noopener">
+        <div class="link-thumb">
+          <svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        </div>
+        <div class="link-text">
+          <div class="link-title">Google Meu Negócio</div>
+          <div class="link-sub">Veja e deixe sua avaliação ⭐</div>
+        </div>
+        <span class="link-arrow">→</span>
+      </a>
+
+    </div>
+
+  </div>
+
+  <a class="whats-cta" href="https://wa.me/5527997143078?text=%5BBio%5D%20Ol%C3%A1%2C%20vim%20pelo%20Instagram%20e%20quero%20saber%20mais%20sobre%20os%20servi%C3%A7os%20do%20Est%C3%BAdio%202%20Marketing." target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="white">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.114.554 4.1 1.523 5.824L.057 23.7a.5.5 0 00.611.638l5.995-1.57A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.9a9.9 9.9 0 01-5.031-1.371l-.36-.214-3.732.978.995-3.63-.235-.374A9.862 9.862 0 012.1 12C2.1 6.534 6.534 2.1 12 2.1c5.466 0 9.9 4.434 9.9 9.9 0 5.466-4.434 9.9-9.9 9.9z"/>
+    </svg>
+    Falar direto no WhatsApp
+  </a>
+
+  <p class="footer-note">Estúdio 2 Marketing · São Mateus, ES</p>
+
+</div>
+
+<!-- ─── CATEGORY MODAL ─── -->
+<div class="modal" id="category-modal">
+  <div class="modal-sheet">
+    <div class="modal-header">
+      <span class="modal-title" id="modal-title">Categoria</span>
+      <button class="modal-close" onclick="closeCategory()">✕</button>
+    </div>
+    <div id="modal-list"></div>
+  </div>
+</div>
+
+<script>
+const WA = '5527997143078';
+
+const categories = {
+  redes: {
+    title: 'Redes Sociais & Conteúdo',
+    items: [
+      { name: 'Gestão de redes sociais', desc: 'Estratégia, calendário editorial aprovado por você, postagens, direcionamento para stories e métricas que mostram o que está dando resultado.', text: '[Bio] Olá! Quero saber mais sobre gestão de redes sociais.' },
+      { name: 'Produção de reels e vídeos', desc: 'Gravação presencial no seu negócio com equipamento próprio. Edição rápida, formato que prende e gera vendas.', text: '[Bio] Olá! Quero saber mais sobre produção de reels e vídeos.' }
+    ]
+  },
+  comercial: {
+    title: 'Tráfego Pago & Comercial',
+    items: [
+      { name: 'Tráfego pago — Meta Ads', desc: 'Campanhas no Instagram e Facebook focadas em região, público e oferta. Cada real investido com objetivo claro.', text: '[Bio] Olá! Quero saber mais sobre Meta Ads (tráfego pago).' },
+      { name: 'Acompanhamento comercial e vendas', desc: 'Metas de faturamento, análise de sazonalidade, atendimento do time, retenção e aumento de ticket médio.', text: '[Bio] Olá! Quero saber mais sobre acompanhamento comercial e vendas.' }
+    ]
+  },
+  organico: {
+    title: 'Tráfego Orgânico',
+    items: [
+      { name: 'Google Meu Negócio', desc: 'Se você ainda não tem perfil, a gente cria do zero. Se já tem, analisamos e atualizamos tudo — categoria, fotos, avaliações, posts — para gerar mais resultado nas pesquisas.', text: '[Bio] Olá! Quero saber mais sobre gestão do Google Meu Negócio.' },
+      { name: 'Site', desc: 'Sites institucionais rápidos, otimizados para o Google e pensados para gerar contato.', text: '[Bio] Olá! Quero saber mais sobre criação de site.' },
+      { name: 'Landing page', desc: 'Uma landing page de qualidade na bio do Instagram é obrigatória pra boa experiência do cliente — é ali que consolidamos as principais informações que a lead precisa pra dar os próximos passos até virar cliente.', text: '[Bio] Olá! Quero saber mais sobre landing pages.' },
+      { name: 'Blog', desc: 'Mais que tráfego: é um mecanismo poderoso pra IAs como o ChatGPT citarem o seu negócio quando alguém pergunta sobre o seu tipo de serviço.', text: '[Bio] Olá! Quero saber mais sobre blog para o meu negócio.' },
+      { name: 'Repaginação da bio do Instagram', desc: 'Analisamos o nome do perfil, os destaques e a descrição da bio, e atualizamos tudo pro seu perfil ser melhor recomendado na busca do Instagram — e pra quem chega até você ter uma experiência melhor no caminho até virar cliente.', text: '[Bio] Olá! Quero saber mais sobre repaginação da bio do Instagram.' }
+    ]
+  }
+};
+
+function openCategory(key) {
+  const cat = categories[key];
+  document.getElementById('modal-title').textContent = cat.title;
+  const list = document.getElementById('modal-list');
+  list.innerHTML = cat.items.map(item => `
+    <div class="service-item">
+      <div class="service-name">${item.name}</div>
+      <div class="service-desc">${item.desc}</div>
+      <a class="service-btn" href="https://wa.me/${WA}?text=${encodeURIComponent(item.text)}" target="_blank" rel="noopener">Falar sobre isso →</a>
+    </div>
+  `).join('');
+  document.getElementById('category-modal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeCategory() {
+  document.getElementById('category-modal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.getElementById('category-modal').addEventListener('click', e => {
+  if (e.target.id === 'category-modal') closeCategory();
+});
+</script>
+
+</body>
+</html>
